@@ -5,14 +5,17 @@
 
 import hashlib
 
-x = hashlib.md5("tuturu")
-x.update("tuturu")
-print "MD5: " + x.hexdigest()
 
-y = hashlib.sha256()
-y.update("tuturu")
-print "SHA256: " + y.hexdigest()
+def main():
+    msg = input("Enter Password: ")
+    msg_enc = msg.encode()
 
-z = hashlib.sha512()
-z.update("tuturu")
-print "SHA512: " + z.hexdigest()
+    hash_md5 = hashlib.md5(msg_enc)
+    hash_sha256 = hashlib.sha256(msg_enc)
+    hash_sha512 = hashlib.sha512(msg_enc)
+
+    print("MD5: " + hash_md5.hexdigest())
+    print("SHA256: " + hash_sha256.hexdigest())
+    print("SHA512: " + hash_sha512.hexdigest())
+
+main()
